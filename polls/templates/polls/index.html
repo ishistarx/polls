@@ -1,0 +1,49 @@
+
+<html>
+    <title>Counselling</title>
+    <style>
+        h1{text-align: left;
+          }
+    </style>
+    <h1>
+        Mental health matters!! 
+    </h1>
+    <h2>
+        <p>
+        “Take your time healing,as long as you want.
+        Nobody else knows what you’ve been through. 
+        How could they know how long it will take to heal you?” — Abertoli
+        
+        </p>
+    </h2>
+    <h2>
+        Your mental health — your psychological, emotional and social well-being — impacts every area of your life. 
+        Having positive mental health allows you to effectively deal with the daily stressors of life, communicate well with others, make healthy decisions and live life to its fullest.
+        But sometimes, struggles with mental illnesses and addiction can make it seem like achieving a healthy mental state is impossible.
+    </h2>
+    <h2>
+        Click on any of the following links to answer a few questions about your present mental health condition.
+        A link will be given at then end of the page to cope up with the problems you face. 
+            
+        
+
+    </h2>
+    
+</html>
+
+
+
+
+
+{% if latest_question_list %}
+    <ul><h1>
+    {% for question in latest_question_list %}
+    <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul></h1>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
